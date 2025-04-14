@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Son pour bonne réponse uniquement
 const correctSound = new Audio("/sounds/miaou-bon.mp3");
 
 const AdditionQuiz = () => {
@@ -62,7 +61,6 @@ const AdditionQuiz = () => {
         ➕ Apprendre les Tables d'Addition
       </h1>
 
-      {/* Sélection du mode */}
       {!mode && (
         <div className="space-y-4 text-center">
           <h2 className="text-xl font-semibold mb-2">Choisis ton mode :</h2>
@@ -90,7 +88,6 @@ const AdditionQuiz = () => {
         </div>
       )}
 
-      {/* Sélection de la table (sauf pour expert) */}
       {mode && mode !== "expert" && !currentTable && (
         <div className="grid grid-cols-2 gap-4 mt-6">
           {tables.map((table) => (
@@ -108,12 +105,10 @@ const AdditionQuiz = () => {
         </div>
       )}
 
-      {/* Affichage de la question */}
       {question && (
         <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
           <h2 className="text-xl font-bold mb-4">{question.question}</h2>
 
-          {/* Mode QCM */}
           {mode === "facile" || mode === "expert" ? (
             <div className="grid grid-cols-2 gap-4">
               {question.options.map((option, index) => (
@@ -127,7 +122,6 @@ const AdditionQuiz = () => {
               ))}
             </div>
           ) : (
-            // Mode réponse libre
             <div>
               <input
                 type="number"

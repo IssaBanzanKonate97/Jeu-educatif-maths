@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Son uniquement pour bonne réponse
 const correctSound = new Audio("/sounds/miaou-bon.mp3");
 
 const MultiplicationQuiz = () => {

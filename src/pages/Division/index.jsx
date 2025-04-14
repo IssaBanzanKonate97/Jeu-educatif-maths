@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Miaou de victoire uniquement
 const correctSound = new Audio("/sounds/miaou-bon.mp3");
 
 const DivisionQuiz = () => {
@@ -63,7 +62,6 @@ const DivisionQuiz = () => {
         ➗ Jeu des Divisions
       </h1>
 
-      {/* Choix du mode */}
       {!mode && (
         <div className="space-y-4 text-center">
           <h2 className="text-xl font-semibold mb-2">Choisis ton mode :</h2>
@@ -91,7 +89,6 @@ const DivisionQuiz = () => {
         </div>
       )}
 
-      {/* Choix de la table (sauf expert) */}
       {mode && mode !== "expert" && !currentTable && (
         <div className="grid grid-cols-2 gap-4 mt-6">
           {tables.map((table) => (
@@ -109,12 +106,10 @@ const DivisionQuiz = () => {
         </div>
       )}
 
-      {/* Affichage question */}
       {question && (
         <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
           <h2 className="text-xl font-bold mb-4">{question.question}</h2>
 
-          {/* Mode QCM */}
           {mode === "facile" || mode === "expert" ? (
             <div className="grid grid-cols-2 gap-4">
               {question.options.map((option, index) => (
@@ -128,7 +123,6 @@ const DivisionQuiz = () => {
               ))}
             </div>
           ) : (
-            // Réponse libre
             <div>
               <input
                 type="number"
